@@ -8,11 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: agent-app
+      app: agent-app-iti
   template:
     metadata:
       labels:
-        app: agent-app
+        app: agent-app-iti
     spec:
       containers:
       - image: moelzedy/iti-bakehouse-jenkins-proj:${BUILD_NUMBER}
