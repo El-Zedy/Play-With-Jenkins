@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: agent-app
+  name: agent-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-app
+  template:
+    metadata:
+      labels:
+        app: agent-app
+    spec:
+      containers:
+      - image: mahmoudahaby/jenkins-pro:${BUILD_NUMBER}
+        name: agent-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources: {}
