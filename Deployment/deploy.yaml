@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: myitiagent-app
   labels:
-    app: agent-app-iti
-  name: agent-app-iti
+    app: ay7aga
 spec:
   replicas: 1
   selector:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - image: moelzedy/iti-bakehouse-jenkins-proj:${BUILD_NUMBER}
-        name: agent-app-iti
+        name: agentpod-app-iti
         imagePullPolicy: Always
         ports:
         - containerPort: 80
