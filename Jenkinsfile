@@ -7,7 +7,7 @@ pipeline {
         {
             steps
             {
-                
+                echo 'test'
             }
         }
 
