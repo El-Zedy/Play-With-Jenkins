@@ -35,7 +35,7 @@ pipeline {
             {   
                 script
                 {
-                    if (env.BRANCH_NAME == "dev" || params.ENV == "test" || params.ENV == "prod")
+                    if (env.BRANCH_NAME == "dev" || env.BRANCH_NAME == "test" || env.BRANCH_NAME == "prod")
                     {
                         withCredentials([file(credentialsId: 'k8s-kubeconfig', variable: 'KUBECONFIG')])
                         {
