@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: Service
 metadata:
+  name: my-agent-service
   labels:
     app: agent-app-iti
-  name: my-agent-svg
 spec:
   ports:
   - name: myagentport
