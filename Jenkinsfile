@@ -40,7 +40,6 @@ pipeline {
                         withCredentials([file(credentialsId: 'k8s-kubeconfig', variable: 'KUBECONFIG')])
                         {
                         sh """
-                            export BUILD_NUMBER=\$(cat ../proj-build-number.txt
                             mv Deployment/deploy.yaml Deployment/deploy.yaml.tmp
                             cat Deployment/deploy.yaml.tmp | envsubst > Deployment/deploy.yaml
                             rm -f Deployment/deploy.yaml.tmp
