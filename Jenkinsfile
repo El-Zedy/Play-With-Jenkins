@@ -11,8 +11,8 @@ pipeline {
                 {
                     sh """
                         docker login -u $USERNAME -p $PASSWORD
-                        docker build -t moelzedy/iti-bakehouse-Jenkins-Proj:${BUILD_NUMBER} .
-                        docker push moelzedy/iti-bakehouse-Jenkins-Proj:${BUILD_NUMBER}
+                        docker build -t moelzedy/iti-bakehouse-jenkins-proj:${BUILD_NUMBER} .
+                        docker push moelzedy/iti-bakehouse-jenkins-proj:${BUILD_NUMBER}
                     """
                 }
             }
