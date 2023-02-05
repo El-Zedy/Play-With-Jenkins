@@ -1,9 +1,9 @@
 pipeline {
     agent { label 'iti-ubuntu-slave'}
-    parameters
-    {
-        choice(name: 'ENV', choices: ['dev', 'test', 'prod',"release"])
-    } 
+//     parameters
+//     {
+//         choice(name: 'ENV', choices: ['dev', 'test', 'prod',"release"])
+//     } 
 
     stages {
 
