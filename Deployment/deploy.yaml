@@ -15,7 +15,7 @@ spec:
         app: agent-app
     spec:
       containers:
-      - image: mahmoudahaby/jenkins-pro:${BUILD_NUMBER}
+      - image: moelzedy/iti-bakehouse-jenkins-proj:${BUILD_NUMBER}
         name: agent-app
         imagePullPolicy: Always
         ports:
