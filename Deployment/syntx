@@ -1,0 +1,6 @@
+
+#{{- if .Values.metadata.name }}
+# {{- else }}
+#   name: zoz
+#{{- end }}
+#{{- include "labels" . | indent 5 }}   
