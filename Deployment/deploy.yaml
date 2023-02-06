@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myitiagent-app
+  labels:
+    app: ay7aga
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-app-iti
+  template:
+    metadata:
+      labels:
+        app: agent-app-iti
+    spec:
+      containers:
+      - image: moelzedy/iti-bakehouse-jenkins-proj:${BUILD_NUMBER}
+        name: agentpod-app-iti
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources: {}
