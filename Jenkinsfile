@@ -1,9 +1,9 @@
 pipeline {
     agent { label 'iti-ubuntu-slave'}
-    parameters
-    {
-        choice(name: 'ENV', choices: ['dev', 'test', 'prod',"release"])
-    } 
+//     parameters
+//     {
+//         choice(name: 'ENV', choices: ['dev', 'test', 'prod',"release"])
+//     } 
 
     stages {
 
@@ -13,7 +13,7 @@ pipeline {
             {
                 script
                 {
-                    if (env.BRANCH_NAME && params.ENV == "release")
+                    if (env.BRANCH_NAME == "release")
                     {
                         withCredentials([usernamePassword(credentialsId: 'Dockerhub-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
                         {
@@ -35,7 +35,7 @@ pipeline {
             {   
                 script
                 {
-                    if (env.BRANCH_NAME && params.ENV == "dev" || params.ENV == "test" || params.ENV == "prod")
+                    if (env.BRANCH_NAME == "dev" || env.BRANCH_NAME == "test" || env.BRANCH_NAME == "prod")
                     {
                         withCredentials([file(credentialsId: 'k8s-kubeconfig', variable: 'KUBECONFIG')])
                         {
@@ -53,4 +53,3 @@ pipeline {
         }
     }
 }
-                  
