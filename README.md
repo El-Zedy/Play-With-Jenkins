@@ -6,6 +6,7 @@ Before you can use this repository, you need to have the following installed on 
 
 - Jenkins
 - Docker
+- kubernetes
 
 ## Clone the repository
   Clone the repository to your local machine:
@@ -24,9 +25,9 @@ To configure Jenkins to use this repository, you need to do the following:
 ## Understanding the pipeline
 The multibranch pipeline defined in this repository includes several stages:
 
-- **Build** - builds the Docker image and tags it with the branch name and build number.
+- **Build** - builds the Docker image and tags it with the branch name and build number then push the image to a local Docker registry.
 - **Test** - runs a basic integration test to ensure that the application is running correctly.
-- **Deploy** - deploys the Docker image to a local Docker registry.
+- **Deploy** - deploys the Docker image as a `deplyment.yml` in your k8s cluster.
 
 ## Making changes
 If you want to modify the application or the pipeline, you can do so by editing the `index.html` file and the `Jenkinsfile`, respectively.
